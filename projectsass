@@ -115,6 +115,25 @@ scanf("%d",&ts[taille].date.annee);
 }
 }
 }
+void supprimer(){
+    if(taille==0){
+    printf("aucun tache ");
+}
+ int indice,i;
+    printf("entrer indice qui veux suprimer:");
+    scanf("%d",&indice);
+
+    if(indice<0 || indice > taille){
+          printf("invalide!!");
+    }
+    else{
+    for(i=indice;i<taille;i++){
+    ts[i]=ts[i+1];
+    }
+    taille--;
+    printf("Supprision avec succes");
+}
+}
 int main(){
 int choix;
 
@@ -132,11 +151,12 @@ int choix;
         case 1 : ajouter();break;
 	case 2 : afficher();break;
 	case 3 :  modifier();break;
-        case 4 : printf("Au revoir ! ");break;
+	case 4 : supprimer();break;
+        case 5 : printf("Au revoir ! ");break;
         default:printf("choix invalide ! \n");
 
         }
-    }while(choix != 5);
+    }while(choix != 6);
 
     return 0;
 }
