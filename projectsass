@@ -61,6 +61,22 @@ do{
 taille++;
  printf("ajoute avec succer");
 }
+void afficher(){
+if(taille==0){
+    printf("aucun tache ");
+}else{
+    int i;
+
+for(i=0;i<taille;i++){
+printf("le titre est:%s\n",ts[i].titre);
+printf("la description est:%s\n",ts[i].description);
+printf("la priorite est:%s\n",ts[i].priorite);
+printf("le jour est:%d\n",ts[i].date.jour);
+printf("le mois est:%d\n",ts[i].date.mois);
+printf("l annee est:%d\n",ts[i].date.annee);
+}
+}
+}
 int main(){
 int choix;
 
@@ -76,11 +92,12 @@ int choix;
         scanf("%d",&choix);
         switch(choix){
         case 1 : ajouter();break;
-        case 2 : printf("Au revoir ! ");break;
+	case 2 : afficher();break;
+        case 3 : printf("Au revoir ! ");break;
         default:printf("choix invalide ! \n");
 
         }
-    }while(choix != 3);
+    }while(choix != 4);
 
     return 0;
 }
