@@ -77,6 +77,44 @@ printf("l annee est:%d\n",ts[i].date.annee);
 }
 }
 }
+void modifier(){
+    if(taille == 0){
+    printf("aucun tache ");
+}else{
+
+    int indice ;
+    printf("entrer indice qui veux modifier:");
+    scanf("%d",&indice);
+    if(indice < 0 || indice > taille){
+          printf("invalide!!");
+    } else {
+printf("entrer nouveau titre:%s",ts[taille].titre);
+scanf("%s",ts[taille].titre);
+printf("entrer nouveau description:%s",ts[taille].description);
+scanf("%s",ts[indice].description);
+int chois;
+do{
+    printf("entrer la priorite(1-high 2-low):");
+    scanf("%d",&chois);
+    switch(chois){
+case 1:
+    strcpy(ts[indice].priorite,"hight");
+    break;
+case 2:
+    strcpy(ts[indice].priorite,"low");
+    break;
+default:printf("chois invalide");
+}
+}while(chois!=1 && chois!=2);
+printf("entrer nouveau jour:");
+scanf("%d",&ts[taille].date.jour);
+printf("entrer nouvaeu mois:");
+scanf("%d",&ts[taille].date.mois);
+printf("entrer nouveau annee:");
+scanf("%d",&ts[taille].date.annee);
+}
+}
+}
 int main(){
 int choix;
 
@@ -93,11 +131,12 @@ int choix;
         switch(choix){
         case 1 : ajouter();break;
 	case 2 : afficher();break;
-        case 3 : printf("Au revoir ! ");break;
+	case 3 :  modifier();break;
+        case 4 : printf("Au revoir ! ");break;
         default:printf("choix invalide ! \n");
 
         }
-    }while(choix != 4);
+    }while(choix != 5);
 
     return 0;
 }
